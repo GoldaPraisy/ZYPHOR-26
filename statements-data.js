@@ -4,78 +4,81 @@
    ========================================================= */
 
 export const DOMAIN_STATEMENTS = {
-  AI: [
+ {
+  "AI": [
     {
-      id: "AI01",
-      title: "AI-Powered Early Crop Disease Detection & Mitigation",
-      description: "Develop a computer vision and deep learning solution to analyze leaf imagery from smartphones or drones to diagnose plant diseases early and recommend targeted organic or chemical treatments.",
-      category: "Computer Vision & Agriculture",
-      level: "Intermediate"
+      "id": "AI11",
+      "title": "The Missing Person Investigation Agent",
+      "description": "A person goes missing and investigators receive fragmented information from CCTV footage, witness statements, social media activity, location history, and other available records. The information is incomplete, noisy, and spread across different sources, making it difficult to identify meaningful connections and determine the person's most probable movements.",
+      "category": "AI Agents & Intelligent Investigation",
+      "level": "Advanced"
     },
     {
-      id: "AI02",
-      title: "Intelligent Multilingual Healthcare Triage Assistant",
-      description: "Build an AI chatbot powered by Large Language Models (LLMs) that collects patient symptoms in regional languages, assesses urgency, generates preliminary clinical summaries, and directs patients to suitable specialists.",
-      category: "NLP & Healthcare",
-      level: "Advanced"
+      "id": "AI12",
+      "title": "The Overwhelmed SOC Analyst",
+      "description": "A security operations center receives thousands of alerts from endpoints, networks, applications, and authentication systems. Many alerts are harmless or duplicated, while a small number may indicate a coordinated cyberattack. The challenge is to automatically correlate related alerts, determine their severity, identify attack patterns, and prioritize the incidents that require immediate attention.",
+      "category": "Cybersecurity AI & Autonomous Agents",
+      "level": "Advanced"
     },
     {
-      id: "AI03",
-      title: "Autonomous Traffic Congestion & Emergency Routing System",
-      description: "Create an AI traffic signal optimization platform using real-time camera streams to dynamically adjust traffic light timings and clear green waves for emergency vehicles.",
-      category: "AI Vision & Smart Cities",
-      level: "Advanced"
+      "id": "AI13",
+      "title": "The Meeting That Forgot Everything",
+      "description": "Important decisions, tasks, deadlines, and responsibilities are discussed across long and unstructured meetings. Participants may interrupt each other, change decisions, or leave actions implied rather than explicitly stated. The challenge is to understand the conversation, identify decisions and commitments, assign responsibilities, and generate an accurate actionable summary.",
+      "category": "NLP & Meeting Intelligence",
+      "level": "Advanced"
     },
     {
-      id: "AI04",
-      title: "Automated Student Code Evaluation & Plagiarism Detector",
-      description: "Design an AI tool that analyzes programming submissions for code quality, structural similarity, logic flaws, and potential AI-generated code plagiarism using AST and semantic embeddings.",
-      category: "EdTech & Code Analytics",
-      level: "Intermediate"
+      "id": "AI14",
+      "title": "The Last-Mile Delivery Puzzle",
+      "description": "A logistics company must deliver hundreds of packages while dealing with traffic, delivery time windows, vehicle capacity, changing road conditions, failed deliveries, and dynamically changing customer locations. A route that appears optimal initially may become inefficient as conditions change, requiring the AI to continuously adapt delivery routes and priorities.",
+      "category": "AI Optimization & Intelligent Logistics",
+      "level": "Advanced"
     },
     {
-      id: "AI05",
-      title: "AI Financial Fraud & Anomalous Transaction Monitoring",
-      description: "Build a real-time machine learning pipeline that monitors banking transactions, detects micro-anomalies, flags fraudulent patterns, and provides explainable AI insights for risk analysts.",
-      category: "FinTech & Predictive AI",
-      level: "Advanced"
+      "id": "AI15",
+      "title": "The Disaster Response Coordinator",
+      "description": "During a disaster, emergency information arrives from weather systems, sensors, emergency calls, social media, satellite imagery, and field teams at different times and with varying reliability. The AI must combine these signals to identify critical areas, estimate changing risks, prioritize emergency resources, and recommend response actions while conditions continue to evolve.",
+      "category": "AI Agents & Emergency Decision Intelligence",
+      "level": "Advanced"
     },
     {
-      id: "AI06",
-      title: "Smart Waste Sorting & Recyclable Material Classifier",
-      description: "Develop a lightweight edge-AI vision model capable of classifying waste items (plastic, glass, paper, e-waste, organic) in real time on low-cost cameras for automated sorting bins.",
-      category: "Computer Vision & Sustainability",
-      level: "Intermediate"
+      "id": "AI16",
+      "title": "The Face That Never Existed",
+      "description": "A suspicious image or video appears authentic but may have been digitally manipulated using generative AI. Facial expressions, lighting, lip movements, audio, and visual artifacts may contain subtle inconsistencies that are difficult for humans to notice. The challenge is to detect whether the media has been manipulated and provide explainable evidence supporting the decision.",
+      "category": "Generative AI Security & Computer Vision",
+      "level": "Advanced"
     },
     {
-      id: "AI07",
-      title: "AI Mental Health Companion & Emotion Tracker",
-      description: "Create an empathetic conversational AI agent that analyzes voice tone, sentiment, and user journal entries to monitor mental wellness, offer mindfulness prompts, and alert contacts in crisis.",
-      category: "Sentiment AI & Wellness",
-      level: "Intermediate"
+      "id": "AI17",
+      "title": "The Hidden Skill Gap",
+      "description": "A student's or employee's current skills do not clearly match the skills required for a target role. Resumes, project experience, assessments, certifications, and job descriptions provide different and sometimes incomplete information. The AI must identify missing skills, distinguish critical gaps from minor ones, and generate a personalized learning path to bridge those gaps.",
+      "category": "AI Recommendation & Skill Intelligence",
+      "level": "Advanced"
     },
     {
-      id: "AI08",
-      title: "Predictive Industrial Equipment Failure & Maintenance",
-      description: "Construct a time-series machine learning model analyzing vibration, temperature, and acoustic data to predict machine breakdowns before they occur and schedule preventive maintenance.",
-      category: "Predictive Analytics & Industry 4.0",
-      level: "Advanced"
+      "id": "AI18",
+      "title": "The Product That Looks Real",
+      "description": "Counterfeit products are increasingly difficult to distinguish from genuine products because packaging, labels, logos, QR codes, and product appearance can be closely imitated. The AI must analyze visual and textual product characteristics along with available product information to estimate authenticity and identify suspicious inconsistencies.",
+      "category": "Computer Vision & AI-Based Fraud Detection",
+      "level": "Advanced"
     },
     {
-      id: "AI09",
-      title: "Smart Accessibility Assistant for Visually Impaired",
-      description: "Develop a mobile visual AI app that narrates spatial surroundings, reads text signs aloud in real-time, recognizes currency notes, and detects obstacle hazards using audio feedback.",
-      category: "Assistive AI & Computer Vision",
-      level: "Intermediate"
+      "id": "AI19",
+      "title": "The Attack Before It Happens",
+      "description": "A network appears normal even though subtle changes in login behavior, network traffic, system activity, and access patterns may indicate that an attacker is preparing for a larger cyberattack. Traditional systems often detect threats only after malicious activity occurs. The challenge is to learn early behavioral signals and predict the likelihood of an upcoming attack before significant damage occurs.",
+      "category": "Predictive AI & Cybersecurity Intelligence",
+      "level": "Advanced"
     },
     {
-      id: "AI10",
-      title: "Automated Legal Document Summarization & Clause Risk Analyzer",
-      description: "Build an NLP application that ingests lengthy legal contracts, extracts key obligations, highlights risk clauses, and generates simplified executive summaries.",
-      category: "LegalTech & LLM Analytics",
-      level: "Advanced"
+      "id": "AI20",
+      "title": "The Memory Gap",
+      "description": "An AI assistant interacts with a user across many conversations but gradually loses important context, causing it to forget previous decisions, commitments, preferences, and relationships between pieces of information. Some memories may also conflict, become outdated, or lack sufficient evidence. The challenge is to build an intelligent memory system that decides what information should be retained, updated, connected, or forgotten while maintaining accurate long-term context.",
+      "category": "Generative AI & Long-Term Memory",
+      "level": "Advanced"
     }
-  ],
+  ]
+}
+
   IoT: [
     {
       id: "IOT01",
