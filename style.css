@@ -129,6 +129,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .brand-apos{ color:var(--bronze); }
 
 .main-nav{ display:flex; align-items:center; gap:38px; }
+/* Logo */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.nav-logo img {
+    width: 140px;
+    height: 55px;
+    object-fit: contain;
+    display: block;
+}
 .nav-link{
   font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
   color:var(--beige); position:relative; padding:6px 0;
