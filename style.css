@@ -321,6 +321,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   letter-spacing: 2px;
   color: #c9a27e;
 }
+.brand-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+}
 
 /* =========================================================
    REVEAL ANIMATIONS
