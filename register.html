@@ -114,10 +114,20 @@
             <p class="reg-field-error" data-error="regDept"></p>
           </div>
           <div class="reg-field">
-            <label for="regYear" class="reg-label">YEAR OF STUDY <span class="req">*</span></label>
-            <input type="number" id="regYear" name="yearOfStudy" class="reg-input" required>
-            <p class="reg-field-error" data-error="regYear"></p>
-          </div>
+    <label for="regYear" class="reg-label">
+        YEAR OF STUDY <span class="req">*</span>
+    </label>
+
+    <select id="regYear" name="yearOfStudy" class="reg-input" required>
+        <option value="">Select Year</option>
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+    </select>
+
+    <p class="reg-field-error" data-error="regYear"></p>
+</div>
     
 
           <div class="reg-field reg-field--full">

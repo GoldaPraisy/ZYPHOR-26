@@ -400,3 +400,16 @@
 }
 .rel-icon { width: 32px; height: 32px; color: var(--gold); flex-shrink: 0; }
 .rel-text { font-size: 0.92rem; color: var(--cream); margin: 0; line-height: 1.5; }
+
+.reg-input {
+    background: #0d0d0d;
+    color: #ffffff;
+    border: 1px solid #555;
+    padding: 12px 14px;
+    border-radius: 6px;
+}
+
+.reg-input option {
+    background: #0d0d0d;
+    color: #ffffff;
+}
