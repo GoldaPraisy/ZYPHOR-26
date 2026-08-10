@@ -1,0 +1,30 @@
+[1mdiff --git a/register.html b/register.html[m
+[1mindex 485602a..f8f6130 100644[m
+[1m--- a/register.html[m
+[1m+++ b/register.html[m
+[36m@@ -124,7 +124,7 @@[m
+               <label class="reg-radio-label" for="mem2">[m
+                 <input type="radio" id="mem2" name="numMembers" value="2" class="reg-radio">[m
+                 <span class="reg-radio-btn">2 Members</span>[m
+[31m-              </label>[m
+[32m+[m[32m              </label>..[m
+               <label class="reg-radio-label" for="mem3">[m
+                 <input type="radio" id="mem3" name="numMembers" value="3" class="reg-radio" checked>[m
+                 <span class="reg-radio-btn">3 Members</span>[m
+[36m@@ -211,15 +211,7 @@[m
+           </div>[m
+         </div>[m
+ [m
+[31m-        <div class="razorpay-box">[m
+[31m-          <div class="rzp-header">[m
+[31m-            <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay" class="rzp-logo" onerror="this.style.display='none'">[m
+[31m-            <div>[m
+[31m-              <h3>Instant Razorpay Online Payment</h3>[m
+[31m-              <p>Secure payment via UPI, Credit/Debit Card, Net Banking, or Wallet.</p>[m
+[31m-            </div>[m
+[31m-          </div>[m
+[31m-        </div>[m
+[32m+[m[41m        [m
+       </div><!-- /section 3 -->[m
+ [m
+ [m
