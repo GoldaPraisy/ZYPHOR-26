@@ -183,6 +183,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
 
+
+
+
 /* =========================================================
    HERO
    ========================================================= */
@@ -284,6 +287,39 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   0%{ transform:translate(-50%,0); opacity:1; }
   70%{ opacity:.2; }
   100%{ transform:translate(-50%,14px); opacity:0; }
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.countdown div {
+  min-width: 90px;
+  padding: 18px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.countdown span {
+  display: block;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.countdown small {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #c9a27e;
 }
 
 /* =========================================================
