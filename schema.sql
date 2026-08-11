@@ -37,22 +37,49 @@ CREATE TABLE IF NOT EXISTS public.registrations (
     email TEXT NOT NULL,
     college_name TEXT NOT NULL,
     department TEXT NOT NULL,
+    year_of_study TEXT NOT NULL,
     food_pref TEXT NOT NULL,
     veg_count INTEGER DEFAULT 0,
     non_veg_count INTEGER DEFAULT 0,
     total_amount INTEGER DEFAULT 0,
     payment_id TEXT DEFAULT NULL,
+    upi_id TEXT DEFAULT '',
     payment_screenshot_url TEXT DEFAULT '',
-    payment_status TEXT DEFAULT 'Confirmed',
-    registered_at TIMESTAMPTZ DEFAULT NOW(),
-    Year_of_study INTEGER NOT NULL
+    payment_status TEXT DEFAULT 'Payment Proof Submitted',
+    registered_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 -- Add missing columns if table already exists
 ALTER TABLE public.registrations ADD COLUMN IF NOT EXISTS veg_count INTEGER DEFAULT 0;
 ALTER TABLE public.registrations ADD COLUMN IF NOT EXISTS non_veg_count INTEGER DEFAULT 0;
 ALTER TABLE public.registrations ADD COLUMN IF NOT EXISTS total_amount INTEGER DEFAULT 0;
+ALTER TABLE public.registrations ADD COLUMN IF NOT EXISTS year_of_study TEXT DEFAULT '';
+ALTER TABLE public.registrations ADD COLUMN IF NOT EXISTS upi_id TEXT DEFAULT '';
 ALTER TABLE public.registrations ADD COLUMN IF NOT EXISTS payment_id TEXT DEFAULT NULL;
+ALTER TABLE public.registrations ALTER COLUMN payment_status SET DEFAULT 'Payment Proof Submitted';
+
+
+-- 4. Payment screenshot storage
+-- The bucket is public so the organizer dashboard can preview submitted proofs.
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('payment-screenshots', 'payment-screenshots', true)
+ON CONFLICT (id) DO UPDATE SET public = true;
+
+DROP POLICY IF EXISTS "Allow public upload payment screenshots" ON storage.objects;
+CREATE POLICY "Allow public upload payment screenshots"
+ON storage.objects FOR INSERT
+WITH CHECK (bucket_id = 'payment-screenshots');
+
+DROP POLICY IF EXISTS "Allow public read payment screenshots" ON storage.objects;
+CREATE POLICY "Allow public read payment screenshots"
+ON storage.objects FOR SELECT
+USING (bucket_id = 'payment-screenshots');
+
+DROP POLICY IF EXISTS "Allow public update payment screenshots" ON storage.objects;
+CREATE POLICY "Allow public update payment screenshots"
+ON storage.objects FOR UPDATE
+USING (bucket_id = 'payment-screenshots')
+WITH CHECK (bucket_id = 'payment-screenshots');
 
 -- Enable Row Level Security (RLS) & Policies for public access (Anon key)
 ALTER TABLE public.teams ENABLE ROW LEVEL SECURITY;

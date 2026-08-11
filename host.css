@@ -349,3 +349,32 @@
   transition: background .25s cubic-bezier(.22,.9,.32,1), transform .25s cubic-bezier(.22,.9,.32,1);
 }
 .img-modal-close:hover{ background: rgba(248,113,113,0.15); color: #f87171; transform: rotate(90deg); }
+
+
+/* Uploaded logo and payment proof controls */
+.host-logo-image {
+  width: 92px;
+  height: 62px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+.host-logo-image--small {
+  width: 58px;
+  height: 40px;
+  margin: 0;
+}
+.btn-tb-proof {
+  margin-top: 0.45rem;
+  border: 1px solid rgba(212,168,67,0.35);
+  background: rgba(212,168,67,0.08);
+  color: var(--gold);
+  border-radius: 7px;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-tb-proof:hover {
+  background: rgba(212,168,67,0.16);
+}

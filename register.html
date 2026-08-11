@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="./images/logo-new.png">
+
 <title>Register — ZYPHOR'26 Hackathon</title>
-<meta name="description" content="Register your team for ZYPHOR'26 Hackathon at Grace College of Engineering. Online payment ₹250/member via Razorpay." />
+<meta name="description" content="Register your team for ZYPHOR'26 Hackathon at Grace College of Engineering. Online payment ₹250/member using the official UPI QR code." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="register.css">
-<!-- Razorpay Checkout SDK -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body class="reg-body">
 
@@ -23,13 +23,12 @@
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="index.html" class="brand">
-      <span class="brand-mark" aria-hidden="true">Z</span>
-      <span class="brand-text">ZYPHOR<span class="brand-apos">'26</span></span>
+      <img src="./images/logo-new.png" alt="ZYPHOR'26 Logo" class="brand-logo">
     </a>
     <nav class="main-nav" id="mainNav">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="application.html" class="nav-link">Application</a>
-      <a href="problem-statement.html" class="nav-link"> Problem Statement</a>
+      <a href="statement.html" class="nav-link">Problem Statement</a>
+      <a href="problem-statement.html" class="nav-link">Application</a>
       <a href="register.html" class="nav-link nav-link--active nav-link--cta">Register Now</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -46,7 +45,7 @@
   <div class="reg-hero-content">
     <p class="eyebrow">Step 2 of Registration</p>
     <h1 class="reg-hero-title">Team<span class="hero-title-accent"> Registration &amp; Payment</span></h1>
-    <p class="reg-hero-sub">Enter student details, specify food preferences, and pay online via Razorpay (₹250 per member).</p>
+    <p class="reg-hero-sub">Enter student details, specify food preferences, and complete the payment using the QR code (₹250 per member).</p>
     <div class="reg-hero-notice">
       <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4M10 13v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       <span>You must complete the <a href="problem-statement.html">Problem Statement</a> page first to create your Team Name.</span>
@@ -63,7 +62,7 @@
       <div class="reg-steps-strip">
         <div class="reg-step-item done">
           <div class="reg-step-dot">✓</div>
-          <span>Problem Statement</span>
+          <span>Application</span>
         </div>
         <div class="reg-step-connector"></div>
         <div class="reg-step-item active">
@@ -86,7 +85,7 @@
               <input type="text" id="regTeamName" name="teamName" class="reg-input" required autocomplete="off">
               <span class="reg-team-status" id="regTeamStatus" aria-live="polite"></span>
             </div>
-            <p class="reg-field-hint">Enter the exact team name created in the Problem Statement form.</p>
+            <p class="reg-field-hint">Enter the exact team name created in the Application form.</p>
             <p class="reg-field-error" data-error="regTeamName"></p>
           </div>
 
@@ -114,21 +113,16 @@
             <p class="reg-field-error" data-error="regDept"></p>
           </div>
           <div class="reg-field">
-    <label for="regYear" class="reg-label">
-        YEAR OF STUDY <span class="req">*</span>
-    </label>
-
-    <select id="regYear" name="yearOfStudy" class="reg-input" required>
-        <option value="">Select Year</option>
-        <option value="1">1st Year</option>
-        <option value="2">2nd Year</option>
-        <option value="3">3rd Year</option>
-        <option value="4">4th Year</option>
-    </select>
-
-    <p class="reg-field-error" data-error="regYear"></p>
-</div>
-    
+            <label for="regYear" class="reg-label">YEAR OF STUDY <span class="req">*</span></label>
+            <select id="regYear" name="yearOfStudy" class="reg-input reg-select" required>
+              <option value="">Select year</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+            </select>
+            <p class="reg-field-error" data-error="regYear"></p>
+          </div>
 
           <div class="reg-field reg-field--full">
             <label for="regNumMembers" class="reg-label">NUMBER OF MEMBERS <span class="req">*</span></label>
@@ -204,12 +198,13 @@
       </div><!-- /section 2 -->
 
 
-      <!-- ── SECTION 3: Payment & Razorpay ── -->
+      <!-- ── SECTION 3: Payment Process ── -->
       <div class="reg-section">
         <h2 class="reg-section-title">
           <span class="reg-section-num">03</span>
-          Payment Details
+          Payment Process
         </h2>
+        <p class="reg-section-desc">Scan the QR code, complete the payment, then upload your payment proof and enter your UPI ID. You can continue only after every required detail is completed.</p>
 
         <div class="payment-calc-card">
           <div class="pcalc-row">
@@ -227,7 +222,82 @@
           </div>
         </div>
 
-        
+        <div class="payment-process-grid payment-process-grid--two">
+          <!-- PAYMENT STEP 01 -->
+          <article class="payment-process-card payment-card-pay">
+            <div class="payment-card-top">
+              <span class="payment-step-number">01</span>
+              <span class="payment-step-status">PAYMENT</span>
+            </div>
+            <h3>Scan &amp; Pay</h3>
+            <p>Scan the official QR code with any UPI app and pay the exact amount shown above.</p>
+            <div class="payment-qr-wrap">
+              <img src="./images/payment-qr.png" alt="ZYPHOR'26 UPI payment QR code" class="payment-qr">
+            </div>
+            <div class="payment-upi-block">
+              <span class="payment-upi-label">Payment UPI ID</span>
+              <code class="payment-upi-value">jerlinfelcia-1@okaxis</code>
+            </div>
+          </article>
+
+          <!-- PAYMENT STEP 02: PROOF UPLOAD -->
+          <article class="payment-process-card payment-card-upload">
+            <div class="payment-card-top">
+              <span class="payment-step-number">02</span>
+              <span class="payment-step-status">REQUIRED</span>
+            </div>
+            <h3>Upload Payment Proof</h3>
+            <p>After completing the payment, upload a clear screenshot of the successful transaction and enter the UPI ID used for payment.</p>
+
+            <div class="reg-field payment-field payment-upload-field">
+              <label for="paymentScreenshot" class="reg-label">PAYMENT SCREENSHOT <span class="req">*</span></label>
+
+              <div class="payment-dropzone" id="paymentDropzone" tabindex="0" role="button" aria-controls="paymentScreenshot" aria-label="Upload payment screenshot">
+                <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/png,image/jpeg,image/webp" required>
+                <div class="payment-upload-icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none">
+                    <rect x="7" y="9" width="34" height="30" rx="7" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M16 30l6-7 5 5 4-4 5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.6"/>
+                  </svg>
+                </div>
+                <strong id="paymentUploadTitle">Drop screenshot here</strong>
+                <span id="paymentUploadHint">or click to browse from your device</span>
+                <small>PNG, JPG or WEBP · Maximum 5 MB</small>
+              </div>
+
+              <div id="paymentFileInfo" class="payment-file-info" hidden>
+                <div class="payment-file-icon">✓</div>
+                <div class="payment-file-text">
+                  <strong id="paymentFileName">Screenshot selected</strong>
+                  <span id="paymentFileSize"></span>
+                </div>
+                <button type="button" id="paymentRemoveBtn" class="payment-remove-btn" aria-label="Remove payment screenshot">Remove</button>
+              </div>
+
+              <div id="paymentPreviewWrap" class="payment-preview-wrap" hidden>
+                <div class="payment-preview-heading">
+                  <span>Preview</span>
+                  <span class="payment-preview-ready">✓ Ready</span>
+                </div>
+                <img id="paymentPreview" class="payment-preview" alt="Payment screenshot preview">
+              </div>
+
+              <p class="reg-field-hint">Make sure the transaction status, amount, and UPI details are visible.</p>
+              <p class="reg-field-error" data-error="paymentScreenshot"></p>
+            </div>
+
+            <div class="reg-field payment-field">
+              <label for="regUpiId" class="reg-label">YOUR UPI ID <span class="req">*</span></label>
+              <div class="payment-upi-input-wrap">
+                <span aria-hidden="true">@</span>
+                <input type="text" id="regUpiId" name="upiId" class="reg-input" placeholder="example@upi" autocomplete="off" required>
+              </div>
+              <p class="reg-field-hint">Enter the UPI ID from the account/app you used to make the payment.</p>
+              <p class="reg-field-error" data-error="regUpiId"></p>
+            </div>
+          </article>
+        </div>
       </div><!-- /section 3 -->
 
 
@@ -236,12 +306,12 @@
         <label class="reg-confirm-label">
           <input type="checkbox" id="regConfirmCheck" name="confirmCheck" class="reg-confirm-check">
           <span class="reg-confirm-custom" aria-hidden="true"></span>
-          <span>I confirm that all student details and food preferences are correct.</span>
+          <span>I confirm that all student details, food preferences, UPI ID, and payment screenshot are correct, and I have completed the payment.</span>
         </label>
         <p class="reg-field-error" data-error="regConfirmCheck"></p>
 
-        <button type="submit" class="btn-reg-submit" id="regSubmitBtn">
-          <span id="regSubmitText">Pay ₹750 &amp; Confirm Registration</span>
+        <button type="submit" class="btn-reg-submit" id="regSubmitBtn" disabled>
+          <span id="regSubmitText">Complete Payment Details to Continue</span>
           <svg class="btn-spinner" id="regSpinner" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:none">
             <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" stroke-dasharray="40 20" stroke-linecap="round"/>
           </svg>
@@ -265,13 +335,20 @@
         <path d="M24 40l10 10 22-22" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
-    <div class="reg-status-badge">Payment Confirmed ✓</div>
+    <div class="reg-status-badge">Payment Details Submitted ✓</div>
     <h2 class="reg-success-title">Registration Complete!</h2>
-    <p class="reg-success-desc">Team <strong id="regSuccessTeam"></strong> is successfully registered and verified.</p>
+    <p class="reg-success-desc">Team <strong id="regSuccessTeam"></strong> has submitted the registration and payment proof successfully.</p>
     
     <div class="reg-release-card">
       <svg viewBox="0 0 24 24" fill="none" class="rel-icon"><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/></svg>
       <p class="rel-text">Your problem statement will be released on <strong>27-08-2026 at 9:00 AM</strong>.</p>
+    </div>
+
+    <div class="team-leader-whatsapp">
+      <p class="team-leader-whatsapp-label">Team Leader Please Join this Group</p>
+      <a href="https://chat.whatsapp.com/G2lvdHsS14WLOssWlHUsme?s=cl&amp;p=a&amp;ilr=1" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-group">
+        Join WhatsApp Group &rarr;
+      </a>
     </div>
 
     <div class="reg-success-actions">

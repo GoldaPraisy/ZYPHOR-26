@@ -373,3 +373,16 @@
 .stmt-confirmed-card h3 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 0.5rem; }
 .stmt-confirmed-card p { font-size: 0.88rem; color: var(--cream-60); line-height: 1.6; }
 .stmt-success-hint { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+
+
+.stmt-hackathon-note {
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(212,168,67,0.25);
+  border-radius: 14px;
+  background: rgba(212,168,67,0.06);
+  color: var(--cream-60, rgba(207,194,181,0.72));
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+.stmt-hackathon-note strong { color: var(--gold, #d4a843); }

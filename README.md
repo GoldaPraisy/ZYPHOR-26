@@ -1,8 +1,8 @@
 # ZYPHOR'26 — Setup Notes
 
 ## Replace these placeholders before launch
-1. **Logo** — `index.html` has `ZYPHOR_LOGO_HERE` in the hero. Swap it for an `<img>` tag once the real logo is ready.
-2. **Payment QR code** — drop your QR image at `assets/payment-qr.png`. It will appear automatically; until then a `QR_CODE_IMAGE_HERE` placeholder shows in its place.
+1. **Logo** — the supplied ZYPHOR logo is stored at `images/logo-new.png` and is used in the page header/favicon.
+2. **Payment QR code** — the supplied QR image is stored at `images/payment-qr.png` and is displayed in the Register page. Replace that file if the payment QR changes.
 3. **Host passcode** — open `host.js` and change `HOST_PASSCODE` (currently `ZYPHOR26HOST`) to something private. This is a client-side gate only — it deters casual access, it is not real authentication.
 
 ## How the "one page, linked by team name" flow works

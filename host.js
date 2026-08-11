@@ -122,7 +122,7 @@ function getFiltered() {
     if (!q) return true;
     const hay = [
       team.team_name, team.team_leader, team.domain,
-      reg?.student_name, reg?.email, reg?.college_name, reg?.department
+      reg?.student_name, reg?.email, reg?.college_name, reg?.department, reg?.year_of_study, reg?.upi_id
     ].filter(Boolean).join(" ").toLowerCase();
     return hay.includes(q);
   });
@@ -188,13 +188,15 @@ function renderTable() {
           <div><strong>${escHtml(reg.student_name)}</strong></div>
           <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">${escHtml(reg.email)}</div>
           <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4);">${escHtml(reg.college_name)} (${escHtml(reg.department)})</div>
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.45);">Year: ${escHtml(reg.year_of_study || "—")}</div>
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.45);">UPI: ${escHtml(reg.upi_id || "—")}</div>
         ` : `<span class="team-na">Registration Pending</span>`}
       </td>
       <td>
         ${reg ? `
-          <span class="tbl-pay-badge ${reg.payment_status?.toLowerCase() || "confirmed"}">${escHtml(reg.payment_status || "Confirmed")}</span>
+          <span class="tbl-pay-badge">${escHtml(reg.payment_status || "Payment Proof Submitted")}</span>
           <div style="font-size: 0.72rem; color: var(--gold); margin-top: 0.2rem;">₹${reg.total_amount || (team.num_members * 250)}</div>
-          <div style="font-size: 0.68rem; color: rgba(255,255,255,0.3);">${escHtml(reg.payment_id || "Razorpay")}</div>
+          ${reg.payment_screenshot_url ? `<button type="button" class="btn-tb-proof" data-proof-url="${escHtml(reg.payment_screenshot_url)}">View Screenshot</button>` : ""}
         ` : `<span class="team-na">Unpaid</span>`}
       </td>
       <td>
@@ -220,7 +222,32 @@ function renderTable() {
       }
     });
   });
+
+// Payment screenshot viewer
+tbody.querySelectorAll(".btn-tb-proof").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const url = btn.dataset.proofUrl;
+    if (!url) return;
+    const modal = document.getElementById("imgModal");
+    const image = document.getElementById("imgModalImage");
+    image.src = url;
+    modal.hidden = false;
+  });
+});
+
 }
+
+document.getElementById("imgModalClose")?.addEventListener("click", () => {
+  document.getElementById("imgModal").hidden = true;
+  document.getElementById("imgModalImage").src = "";
+});
+
+document.getElementById("imgModal")?.addEventListener("click", (e) => {
+  if (e.target.id === "imgModal") {
+    e.currentTarget.hidden = true;
+    document.getElementById("imgModalImage").src = "";
+  }
+});
 
 /* ----------------------------------------------------------
    CSV Export
@@ -231,7 +258,7 @@ document.getElementById("exportCsvBtn").addEventListener("click", () => {
 
   const headers = [
     "Team Name","Domain","Team Leader","No. of Members","All Members","Selected Statement",
-    "Student Name","Email","College","Department","Veg Count","Non-Veg Count","Payment Status","Total Amount","Payment ID"
+    "Student Name","Email","College","Department","Year of Study","UPI ID","Veg Count","Non-Veg Count","Payment Status","Total Amount","Payment ID","Payment Screenshot"
   ];
 
   const rows = teams.map(t => {
@@ -239,8 +266,9 @@ document.getElementById("exportCsvBtn").addEventListener("click", () => {
     const members = [t.team_leader, ...(t.member_names || [])].filter(Boolean).join(" | ");
     return [
       t.team_name, t.domain, t.team_leader, t.num_members, members, t.selected_statement || "Not Selected",
-      reg.student_name, reg.email, reg.college_name, reg.department, reg.veg_count || 0, reg.non_veg_count || 0,
-      reg.payment_status || "Pending", reg.total_amount || (t.num_members * 250), reg.payment_id || ""
+      reg.student_name, reg.email, reg.college_name, reg.department, reg.year_of_study || "", reg.upi_id || "",
+      reg.veg_count || 0, reg.non_veg_count || 0, reg.payment_status || "Pending",
+      reg.total_amount || (t.num_members * 250), reg.payment_id || "", reg.payment_screenshot_url || ""
     ];
   });
 

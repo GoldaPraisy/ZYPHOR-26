@@ -4,7 +4,7 @@
    ========================================================= */
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-const SUPABASE_URL  = "https://frhenpsdnfajnphagakk.supabase.co";
+const SUPABASE_URL  = "https://qcgobbldrystrplllckj.supabase.co";
 const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFjZ29iYmxkcnlzdHJwbGxsY2tqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYzMzM4MzMsImV4cCI6MjEwMTkwOTgzM30.23oNCrGiPrUztp_qsrkABrzJ3JgAFoN73VJsvZQmSAA";
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON);
@@ -56,8 +56,8 @@ export async function getDomainAnswers(teamId) {
 ------------------------------------------------------- */
 export async function upsertRegistration({
   teamId, teamName, studentName, email, collegeName, department,
-  foodPref, vegCount = 0, nonVegCount = 0, totalAmount = 0,
-  paymentScreenshotUrl = "", paymentId = "RAZORPAY_DEMO", paymentStatus = "Confirmed"
+  yearOfStudy, foodPref, vegCount = 0, nonVegCount = 0, totalAmount = 0,
+  upiId = "", paymentScreenshotUrl = "", paymentId = "", paymentStatus = "Payment Proof Submitted"
 }) {
   return supabase.from("registrations").upsert(
     {
@@ -67,12 +67,14 @@ export async function upsertRegistration({
       email,
       college_name: collegeName,
       department,
+      year_of_study: yearOfStudy,
       food_pref: foodPref,
       veg_count: vegCount,
       non_veg_count: nonVegCount,
       total_amount: totalAmount,
+      upi_id: upiId,
       payment_id: paymentId,
-      payment_screenshot_url: paymentScreenshotUrl || "RAZORPAY_ONLINE",
+      payment_screenshot_url: paymentScreenshotUrl || "",
       payment_status: paymentStatus
     },
     { onConflict: "team_name" }

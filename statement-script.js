@@ -3,7 +3,7 @@
    Statement unlock countdown, Team lookup & Statement selection
    ========================================================= */
 
-import { DOMAIN_STATEMENTS } from "./statements-data.js";
+import { DOMAIN_STATEMENTS, HACKATHON_NOTE } from "./statements-data.js";
 import { getTeamByName, saveTeamStatement } from "./supabase-client.js";
 
 // Target Release Date: 27-08-2026 09:00:00 AM IST
@@ -76,7 +76,7 @@ teamLookupForm.addEventListener("submit", async (e) => {
     btnStmtLookup.disabled = false;
 
     if (error || !data) {
-      stmtLookupStatus.textContent = "✗ Team not found. Please register your team in Problem Statement page first.";
+      stmtLookupStatus.textContent = "✗ Team not found. Please register your team in the Application page first.";
       stmtLookupStatus.classList.add("error");
       return;
     }
@@ -117,6 +117,16 @@ const stmtCardsGrid = document.getElementById("stmtCardsGrid");
 function renderStatementsForDomain(domain) {
   const statements = DOMAIN_STATEMENTS[domain] || DOMAIN_STATEMENTS.AI;
   stmtCardsGrid.innerHTML = "";
+  const noteEl = document.getElementById("stmtHackathonNote");
+  if (noteEl) {
+    if (domain === "IoT") {
+      noteEl.hidden = false;
+      noteEl.innerHTML = `<strong>Hackathon Note:</strong> ${escapeHtml(HACKATHON_NOTE)}`;
+    } else {
+      noteEl.hidden = true;
+      noteEl.textContent = "";
+    }
+  }
 
   statements.forEach((item, index) => {
     const label = document.createElement("label");
